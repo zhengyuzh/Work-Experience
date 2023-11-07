@@ -26,13 +26,13 @@ public class TestSplitAndSubString {
         for (int i = 0; i < strings2.length; i++) {
             System.out.println(strings2[i]);
         }
-        System.out.println("======");
-        //遍历根据“-”截取后的结果
+        System.out.println("============");
+        //遍历根据"_"截取后的结果
         for (int i = 0; i < strings.length; i++) {
             System.out.println(strings[i]);
         }
         System.out.println("============");
-        //遍历根据“-”截取后的结果，限制条件（截取两份）
+        //遍历根据"_"截取后的结果，限制条件（截取两份）
         for (int i = 0; i < strings1.length; i++) {
             System.out.println(strings1[i]);
         }
