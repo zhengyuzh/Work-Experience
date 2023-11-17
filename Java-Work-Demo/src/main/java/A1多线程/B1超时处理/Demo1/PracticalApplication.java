@@ -3,6 +3,7 @@ package A1多线程.B1超时处理.Demo1;
 import com.cfcc.spz.sdk.SPZUtils;
 import org.apache.log4j.Logger;
 
+import java.net.URLDecoder;
 import java.util.Arrays;
 import java.util.concurrent.*;
 
@@ -18,7 +19,8 @@ public class PracticalApplication {
     private static ExecutorService executorService = Executors.newSingleThreadExecutor();
 
     public static void main(String[] args) {
-        String OriginalString = "`H234C3`H2CC56`H036C3依`H04DAE";//取出生僻字
+        // String OriginalString = "`H234C3`H2CC56`H036C3依`H04DAE";//取出生僻字
+        String OriginalString = "军`H2E9F5`H31364";
         try{
             String TransferStringSub = timeoutMethod(OriginalString);
             if(TransferStringSub.equals("*") || TransferStringSub == "*"){
@@ -31,6 +33,9 @@ public class PracticalApplication {
                 String result = new String(afterUTF_32,"UTF-32");
                 TransferStringSub = "*"+result;
                 log.info("生僻字转换成功及隐藏第一个字符 " + TransferStringSub);
+
+                TransferStringSub = URLDecoder.decode(TransferStringSub,"utf-8");
+                log.info("UTF-8 转 字符串:" + TransferStringSub);
             }
 
 
