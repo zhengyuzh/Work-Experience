@@ -37,6 +37,22 @@ public class TestSplitAndSubString {
             System.out.println(strings1[i]);
         }
 
+        /**
+         * 输出结果如下:
+         * welcome
+         * to
+         * china
+         * ============
+         *  welcome
+         * to
+         * china
+         * ============
+         *  welcome
+         * to_china
+         *
+         *
+         **/
+
     }
 
 
@@ -58,5 +74,27 @@ public class TestSplitAndSubString {
         System.out.println(s2);
 
 
+    }
+
+    @Test
+    public void testDemo3(){
+        String responseMessage ="_MAC数据_001_00980";
+        String[] strData = responseMessage.substring(1).split("_");
+        for(String item : strData){
+            System.out.println(item);
+        }
+        System.out.println(strData.length);
+        String macData = strData[strData.length - 1];
+        System.out.println(macData);
+
+        /**
+         * 输出数据如下：
+         * MAC数据
+         * 001
+         * 00980
+         * 3
+         * 00980
+         *
+         **/
     }
 }

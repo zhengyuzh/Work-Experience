@@ -88,6 +88,15 @@ public class TestSplit {
             PAN = GetFieldValue(receiveData, iHeadLen+40+14+12+3, 40).trim();
             System.out.println("账号:" + PAN);
 
+            /**
+             * 输出结果如下：
+             * 订单号:FSD20221103
+             * 订单时间:20231127 14:18
+             * 交易金额:40000.000000
+             * 交易币种:CNY
+             * 账号:45321234567
+             *
+             **/
         }else{
             System.out.println("rev data: null");
         }
