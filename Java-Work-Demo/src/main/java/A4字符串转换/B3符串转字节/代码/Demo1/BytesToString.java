@@ -7,7 +7,7 @@ import org.junit.Test;
  * @BelongsPackage: A4字符串转换.B3符串转字节.代码.Demo1
  * @Author: zhengyuzhu
  * @CreateTime: 2023-11-27  13:22
- * @Description: 字节转换字符串
+ * @Description: 字节和字符串互转
  * @Version: 1.0
  */
 public class BytesToString {
@@ -19,16 +19,21 @@ public class BytesToString {
     @Test
     public void TestDemo1(){
         String str = "Hello, World!";
+        /**
+         * @description: 字符串转换成字节
+         *               具体代码如下：
+         **/
         byte[] bytes = str.getBytes();
 
         for(byte item  : bytes){
             System.out.println(item);
         }
 
+
         /**
          *
-         *  1、使用String类的构造方法，将字节数组转换为字符串。
-         *     具体代码如下：
+         * @description: 使用String类的构造方法，将字节数组转换为字符串。
+         *               具体代码如下：
          **/
         String result = new String(bytes);
         System.out.println(result);
