@@ -81,6 +81,7 @@ public class TestJSONOne {
         JSONObject jsonObject1 = JSONObject.parseObject(studentString);
 
         System.out.println(jsonObject1);
+        System.out.println(jsonObject1.get("age"));
     }
 
     /**

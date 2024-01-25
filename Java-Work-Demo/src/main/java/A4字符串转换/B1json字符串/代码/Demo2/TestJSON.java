@@ -133,6 +133,10 @@ public class TestJSON {
                 "    ]";
 
         JSONArray array = JSON.parseArray(arrayStr);
+        String s = (String) array.get(0);
+        JSONObject SS = JSONObject.parseObject(s);
+        System.out.println(SS.get("name"));
+        System.out.println();
         System.out.println(array);
     }
 
@@ -160,6 +164,8 @@ public class TestJSON {
     public void getJsonArrayItem() {
         JSONArray array = getJsonArray();
         for (int i=0; i<array.size(); i++) {
+            String rs = (String) array.get(i);
+            System.out.println(rs);
             System.out.println(array.get(i));
         }
     }
