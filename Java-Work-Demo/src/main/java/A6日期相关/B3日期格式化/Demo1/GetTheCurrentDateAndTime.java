@@ -8,7 +8,10 @@ package A6日期相关.B3日期格式化.Demo1;
  * @Description: TODO
  * @Version: 1.0
  */
+import org.junit.Test;
+
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -53,6 +56,38 @@ public class GetTheCurrentDateAndTime {
         // 测试获取 交易日期：20231120  交易时间：145504 类型的时间格式
         GetTheCurrentDateAndTime.testData01();
 
+    }
+
+
+    @Test
+    public void test1(){
+        long times = Calendar.getInstance().getTimeInMillis();       //毫秒级
+        System.out.println(times);
+    }
+
+    /**
+     * @description: 组合文件名称
+     * @author: zhengyuzhu
+     * @date: 2023/12/22 16:09
+     **/
+    @Test
+    public void test2(){
+        String machineNo = "0571XCKB";
+        String batch_no = "2312121";
+        String batch_no_splic = batch_no.substring(0,6);
+        String bastPath ="/sdcard/grgbanking/iterminal/cmbAgent/fileTmpSend/";
+        System.out.println(batch_no_splic);
+        long times = Calendar.getInstance().getTimeInMillis();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        String jyrq = sdf.format(new Date()); //交易日期
+        String jyrqSplic = jyrq.substring(0,2);
+        String nums =bastPath+ machineNo +"_"  + jyrqSplic + batch_no_splic + "." + times +".gz";
+        System.out.println(nums);
+
+
+
+        String packNameBefore = machineNo +"_" +batch_no + "." + times +".gz";
+        System.out.println(packNameBefore);
     }
 }
 
