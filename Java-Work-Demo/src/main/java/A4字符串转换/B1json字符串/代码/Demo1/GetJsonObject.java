@@ -1,5 +1,6 @@
 package A4字符串转换.B1json字符串.代码.Demo1;
 
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
 
@@ -19,6 +20,9 @@ public class GetJsonObject {
     public String getJsonObjectString() {
         JSONObject result = new JSONObject();
         JSONObject paramJson = new JSONObject();
+        int [] myArray = {12,14};
+
+        result.put("array",myArray);
         result.put("result", "00");
         paramJson.put("msg", "Success");
         paramJson.put("name", "张三");
@@ -40,6 +44,9 @@ public class GetJsonObject {
 
         //解析该json
         JSONObject resultJson = JSONObject.parseObject(result);
+        JSONArray myArray = resultJson.getJSONArray("array");
+        System.out.println(myArray.get(0));
+        System.out.println(myArray.get(1));
 
         //通过key-value的形式获取值
         String resultCode = (String) resultJson.get("result");
