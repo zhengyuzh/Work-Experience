@@ -72,7 +72,23 @@ public class TestSplitAndSubString {
 
         System.out.println(s1);
         System.out.println(s2);
+        System.out.println(s.substring(0, 1));
 
+
+    }
+
+    @Test
+    public void Demo4(){
+        String s = "2401273|0571845W|0129|114024|6225750082093887   |  CT|    |      |1|    4019|0|CM|    |      |01|ND|";
+        System.out.println(s.substring(0, 66));
+        System.out.println(s.substring(67));
+
+        System.out.println(s.substring(0, 79));
+        System.out.println(s.substring(81));
+        String rs = s.substring(0,79)+ "NA" +s.substring(81);
+        System.out.println("====");
+        System.out.println(rs);
+        System.out.println(s);
 
     }
 
