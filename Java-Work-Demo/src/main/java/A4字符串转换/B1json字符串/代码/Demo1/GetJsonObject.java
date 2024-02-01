@@ -3,6 +3,7 @@ package A4字符串转换.B1json字符串.代码.Demo1;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
+import sun.rmi.runtime.Log;
 
 /**
  * @author zyz
@@ -20,8 +21,9 @@ public class GetJsonObject {
     public String getJsonObjectString() {
         JSONObject result = new JSONObject();
         JSONObject paramJson = new JSONObject();
-        int [] myArray = {12,14};
+        int [] myArray = { };
 
+        result.put("flag","false");
         result.put("array",myArray);
         result.put("result", "00");
         paramJson.put("msg", "Success");
@@ -45,8 +47,19 @@ public class GetJsonObject {
         //解析该json
         JSONObject resultJson = JSONObject.parseObject(result);
         JSONArray myArray = resultJson.getJSONArray("array");
-        System.out.println(myArray.get(0));
-        System.out.println(myArray.get(1));
+        // if(myArray.size()  ==0){
+        //     System.out.println("传过来的数组是空");
+        // }else{
+        //     System.out.println(myArray.get(0));
+        //     System.out.println(myArray.get(1));
+        // }
+
+        Boolean flag = resultJson.getBoolean("flag");
+        if(flag ){
+            System.out.println(myArray.get(0));
+            System.out.println(myArray.get(1));
+            System.out.println("可以获取到flag");
+        }
 
         //通过key-value的形式获取值
         String resultCode = (String) resultJson.get("result");
@@ -59,5 +72,46 @@ public class GetJsonObject {
 
         String resultMsgs = (String) resultJson.getJSONObject("param").get("msg");
         System.out.println("一次性取出嵌套json中的  msg 值:" + resultMsgs);
+    }
+
+
+
+
+    @Test
+    public void testDemo(){
+        String fileExtend = "RetractCard.log";
+        String str1 = "666";
+        Boolean changeFlag = true;
+        if(fileExtend.equals("RetractCard.log")){
+
+            if("0".equals("0")){
+                str1 = "1";
+                System.out.println("拼接后的内容:"+ str1);
+            }
+
+        }else if(fileExtend.equals("RetractCash.log")){
+            if("0".equals("0")){
+                str1 ="2";
+                System.out.println("拼接后的内容:"+ str1);
+            }
+
+        }
+
+        System.out.println("88888");
+        if(fileExtend.equals("RetractCard.log")) {
+
+            if(changeFlag){
+                str1 = "3";
+                System.out.println("拼接后的内容:"+ str1);
+            }else{
+                System.out.println("changeFlag有问题:");
+
+            }
+
+        }else{
+            System.out.println("000");
+        }
+
+        System.out.println("拼接后的内容8:"+ str1);
     }
 }
