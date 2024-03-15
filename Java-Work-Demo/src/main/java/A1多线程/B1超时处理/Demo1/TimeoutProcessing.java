@@ -50,10 +50,10 @@ public class TimeoutProcessing {
 
         executorService.execute(futureTask);
         try {
-            result = futureTask.get(2000, TimeUnit.MILLISECONDS);
+            result = futureTask.get(3000, TimeUnit.MILLISECONDS);
         } catch (InterruptedException | ExecutionException | TimeoutException e) {
             futureTask.cancel(true);
-            result = "默认";
+            result = "调用方法超时了，返回默认的结果";
         }
 
         return result;
@@ -64,11 +64,11 @@ public class TimeoutProcessing {
      * @return
      */
     private static String unknowMethod() {
-        Random random = new Random();
-        int time = (random.nextInt(10) + 1) * 1000;
-        log.info("任务将耗时： " + time + "毫秒");
+        // Random random = new Random();
+        // int time = (random.nextInt(10) + 1) * 1000;
+        // log.info("任务将耗时： " + time + "毫秒");
         try {
-            Thread.sleep(time);
+            Thread.sleep(8000);
         } catch (Exception e) {
             // TODO: handle exception
         }
