@@ -23,6 +23,7 @@ public class CompoentJsonResult {
         JSONObject paramJson = new JSONObject();
         result.put("result", "00");
         paramJson.put("msg", "Success");
+        paramJson.put("code",-1);
         paramJson.put("name", "张三");
         paramJson.put("age", 18);
         result.put("param", paramJson);
@@ -45,8 +46,11 @@ public class CompoentJsonResult {
     @Test
     public void Demo() {
         JSONObject json_result = getJSONObject();
+
         String string_result = getJsonToString(json_result);
         System.out.println(string_result);
+        System.out.println(json_result.getJSONObject("param").getString("code")); //取出嵌套的JSONObject子对象中site2对应的value值，必须用getJSONObject()先获取JSONObject
+
 
 
     }
