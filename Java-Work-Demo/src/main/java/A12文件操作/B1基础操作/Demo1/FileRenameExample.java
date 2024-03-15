@@ -42,4 +42,67 @@ public class FileRenameExample {
         }
 
     }
+
+
+    /**
+     * @description:测试调用文件重命名封装方法
+     * @author: zhengyuzhu
+     * @date: 2024/2/20 11:01
+     **/
+    @Test
+    public void TestDemo2(){
+        String path = "F:\\data\\Branch";
+        String oldFileName ="DEPOSIT_INSURANCE.jpg";
+        String oldFilePath = path + File.separator + oldFileName;
+
+        // 指定新的文件名
+        String newFileName = "newFileName.jpg";
+
+        // 构建新的文件路径
+        String newFilePath = path + File.separator + newFileName;
+
+        // 使用renameTo()方法进行重命名
+        boolean isRenamed = renameFile(oldFilePath,newFilePath);
+
+        if (isRenamed) {
+            System.out.println("文件重命名成功！");
+        } else {
+            System.out.println("文件重命名失败！");
+        }
+
+    }
+
+
+    /**
+     * @description: 文件重命名
+     * @author: zhengyuzhu
+     * @date: 2024/2/20 10:58
+     * @param: oldFilePath
+     * @param: newFilePath
+     * @return: java.lang.Boolean
+     **/
+    public Boolean renameFile(String oldFilePath,String newFilePath){
+        try{
+
+            // 创建File对象
+            File oldFile = new File(oldFilePath);
+
+            // 创建新的File对象
+            File newFile = new File(newFilePath);
+
+            if(newFile.exists()){
+                newFile.delete();
+            }
+
+            // 使用renameTo()方法进行重命名
+            boolean isRenamed = oldFile.renameTo(newFile);
+            return isRenamed;
+
+        }catch (Exception e){
+            System.out.println("重命名异常" + e.getMessage());
+            return false;
+        }
+
+
+    }
 }
